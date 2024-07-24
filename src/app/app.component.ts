@@ -6,5 +6,19 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'App';
+  AreThereAnyTasks:boolean = true;
+  Tasks:Array<string> = []
+  TasksInput:string = ''
+
+  Submit(){
+    if(this.TasksInput != ''){
+      this.Tasks.push(this.TasksInput)
+      this.TasksInput = ''
+      console.log(this.Tasks)
+    }
+  }
+
+  Delete(Task:number){
+    this.Tasks.splice(Task,1)
+  }
 }
